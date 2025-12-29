@@ -1,0 +1,236 @@
+/* ================================
+   GLOBAL STYLES
+================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ================================
+   COMMON COMPONENTS
+================================ */
+
+h1, h2, h3 {
+  margin-bottom: 15px;
+  color: #222;
+}
+
+p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  display: inline-block;
+  background: #4f46e5;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #4338ca;
+}
+
+/* ================================
+   HEADER (HOME PAGE)
+================================ */
+
+header {
+  background: linear-gradient(120deg, #4f46e5, #6366f1);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+header p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* ================================
+   HOME FEATURES
+================================ */
+
+section {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+section ul {
+  list-style: none;
+}
+
+section ul li {
+  background: #fff;
+  margin-bottom: 12px;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #e5e7eb;
+  margin-top: 50px;
+}
+
+/* ================================
+   LOGIN / REGISTER PAGE
+================================ */
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+button {
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: none;
+  background: #4f46e5;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover {
+  background: #4338ca;
+}
+
+body > h2 {
+  text-align: center;
+  margin-top: 80px;
+}
+
+/* ================================
+   DASHBOARD
+================================ */
+
+.dashboard-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.dashboard-container button {
+  margin-bottom: 20px;
+}
+
+#adsList {
+  list-style: none;
+}
+
+#adsList li {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* ================================
+   EDITOR PAGE
+================================ */
+
+.tools {
+  background: #ffffff;
+  padding: 15px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+}
+
+canvas {
+  display: block;
+  margin: 30px auto;
+  background: white;
+  border-radius: 8px;
+}
+
+/* ================================
+   ADMIN PANEL
+================================ */
+
+section {
+  background: #fff;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+section h3 {
+  background: #f3f4f6;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+section p, section ul {
+  padding: 15px;
+}
+
+section ul li {
+  margin-bottom: 8px;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 768px) {
+
+  header h1 {
+    font-size: 32px;
+  }
+
+  section {
+    margin: 30px 10px;
+  }
+
+  canvas {
+    width: 95% !important;
+    height: auto !important;
+  }
+
+  .tools {
+    flex-direction: column;
+    align-items: center;
+  }
+}
