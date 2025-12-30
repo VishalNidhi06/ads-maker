@@ -1,59 +1,127 @@
+/* GLOBAL FIX */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f2f2f2;
+  overflow: hidden;
 }
 
+/* HEADER */
 header {
   background: #1f6feb;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
 }
 
-/* Two-column layout */
-.main-wrapper {
+/* GRID */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  padding: 15px;
+  height: calc(100vh - 120px); /* fixed usable height */
+}
+
+/* COLUMN */
+.column {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;            /* 🔥 IMPORTANT */
+  overflow: hidden;
+}
+
+.column h2 {
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+/* INPUTS */
+label {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+input[type="range"] {
+  padding: 0;
+}
+
+/* FONT BUTTONS */
+.font-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.font-buttons button {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 20px;
+  border: 2px solid #ccc;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.font-buttons button.active {
+  border-color: #1f6feb;
+  background: #e8f0fe;
+}
+
+/* ========================= */
+/* PREVIEW COLUMN (FIXED)    */
+/* ========================= */
+
+.preview-column {
+  height: 100%;            /* 🔥 REQUIRED */
+}
+
+/* 90% IMAGE AREA */
+.preview-area {
+  height: 90%;             /* 🔥 FIX */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* IMAGE FULLY FIT */
+.preview-area img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;     /* 🔥 FULL TEMPLATE ALWAYS VISIBLE */
+  border: 2px solid #ccc;
+}
+
+/* 10% BUTTON AREA */
+.preview-button {
+  height: 10%;             /* 🔥 FIX */
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
-/* Left & Right panels */
-.panel {
-  background: white;
-  width: 350px;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.panel h2 {
-  text-align: center;
-}
-
-/* Inputs */
-label {
-  display: block;
-  margin-top: 15px;
-}
-
-input, select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  font-size: 16px;
-}
-
-/* Center button */
-.button-area {
-  text-align: center;
-  margin: 30px 0;
-}
-
+/* BUTTON */
 button {
-  padding: 15px 40px;
-  font-size: 20px;
+  padding: 10px 25px;
+  font-size: 16px;
   background: #1f6feb;
   color: white;
   border: none;
@@ -65,20 +133,9 @@ button:hover {
   background: #155ac0;
 }
 
-/* Output image */
-.output {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.output img {
-  width: 320px;
-  border: 2px solid #ccc;
-  margin-top: 10px;
-}
-
+/* FOOTER */
 footer {
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 13px;
   color: #555;
 }

@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Ads Maker</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <h1>🪧 Ads Maker</h1>
-  <p>Create shop ads easily</p>
+  <p>Create simple shop ads</p>
 </header>
 
-<!-- MAIN WRAPPER -->
-<div class="main-wrapper">
+<div class="grid-container">
 
-  <!-- LEFT PART -->
-  <div class="panel">
+  <!-- COLUMN 1 : DETAILS -->
+  <div class="column">
     <h2>Enter Details</h2>
 
     <label>🏪 Shop Name</label>
@@ -28,44 +31,61 @@
     <input id="line4" type="text" placeholder="Detail 4">
   </div>
 
-  <!-- RIGHT PART -->
-  <div class="panel">
-    <h2>Text Style</h2>
+  <!-- COLUMN 2 : CUSTOMIZATION -->
+  <div class="column">
+    <h2>Customize</h2>
 
     <label>🎨 Shop Name Color</label>
-    <input type="color" id="shopColor">
+    <input type="color" id="shopColor" value="#ffffff">
 
-    <label>🔠 Shop Name Font Size</label>
+    <label>🔠 Shop Name Size</label>
     <input type="range" id="shopFontSize" min="24" max="60" value="36">
     <span id="shopFontValue">36</span> px
+
+    <label>🅰️ Shop Name Font</label>
+    <div class="font-buttons">
+      <button onclick="setShopFont('Arial')" class="active">A</button>
+      <button onclick="setShopFont('Poppins')" style="font-family:Poppins">A</button>
+      <button onclick="setShopFont('Montserrat')" style="font-family:Montserrat">A</button>
+      <button onclick="setShopFont('Playfair Display')" style="font-family:'Playfair Display'">A</button>
+      <button onclick="setShopFont('Courier New')" style="font-family:'Courier New'">A</button>
+    </div>
 
     <hr>
 
     <label>🎨 Details Color</label>
-    <input type="color" id="detailColor">
+    <input type="color" id="detailColor" value="#ffffff">
 
-    <label>🔠 Details Font Size</label>
+    <label>🔠 Details Size</label>
     <input type="range" id="detailFontSize" min="14" max="40" value="24">
     <span id="detailFontValue">24</span> px
+
+    <label>🅱️ Details Font</label>
+    <div class="font-buttons">
+      <button onclick="setDetailFont('Arial')" class="active">A</button>
+      <button onclick="setDetailFont('Poppins')" style="font-family:Poppins">A</button>
+      <button onclick="setDetailFont('Montserrat')" style="font-family:Montserrat">A</button>
+      <button onclick="setDetailFont('Playfair Display')" style="font-family:'Playfair Display'">A</button>
+      <button onclick="setDetailFont('Courier New')" style="font-family:'Courier New'">A</button>
+    </div>
+  </div>
+
+  <!-- COLUMN 3 : PREVIEW -->
+  <div class="column preview-column">
+    <h2>Preview</h2>
+
+    <div class="preview-area">
+      <img id="resultImage">
+    </div>
+
+    <div class="preview-button">
+      <button onclick="downloadImage()">Download Image</button>
+    </div>
   </div>
 
 </div>
 
-<!-- BUTTON CENTER -->
-<div class="button-area">
-  <button onclick="generateImage()">Generate Template</button>
-  <button onclick="downloadImage()">Download Image</button>
-</div>
-
-
-<!-- CANVAS -->
 <canvas id="posterCanvas" width="600" height="800" style="display:none;"></canvas>
-
-<!-- OUTPUT -->
-<div class="output">
-  <h3>Generated Image</h3>
-  <img id="resultImage">
-</div>
 
 <footer>
   <p>Simple ads for small shops</p>
