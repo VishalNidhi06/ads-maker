@@ -7,37 +7,39 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>🪧 Ads Maker</h1>
-    <p>Create festival ads easily</p>
-  </header>
+<header>
+  <h1>🪧 Ads Maker</h1>
+  <p>Create shop ads easily</p>
+</header>
 
-  <!-- Main Content -->
-  <div class="container">
+<div class="container">
+  <h2>Enter Details</h2>
 
-    <h2>Enter Shop Details</h2>
+  <label>🏪 Shop Name</label>
+  <input id="shopName" type="text" placeholder="Sri Ganesh Stores">
 
-    <!-- Shop Name -->
-    <label>🏪 Shop Name</label>
-    <input type="text" placeholder="Example: Sri Ganesh Stores">
+  <!-- Empty inputs (no headings) -->
+  <input id="line1" type="text" placeholder="Offer / Festival">
+  <input id="line2" type="text" placeholder="Extra details">
+  <input id="line3" type="text" placeholder="Phone / Address">
+  <input id="line4" type="text" placeholder="Quote">
 
-    <!-- Empty input boxes (no headings) -->
-    <input type="text" placeholder="Enter text">
-    <input type="text" placeholder="Enter text">
-    <input type="text" placeholder="Enter text">
-    <input type="text" placeholder="Enter text">
-    <input type="text" placeholder="Enter text">
+  <button onclick="generateImage()">Generate Template</button>
+</div>
 
-    <!-- Action Button -->
-    <button>Generate Image</button>
+<!-- Canvas (hidden) -->
+<canvas id="posterCanvas" width="600" height="800"></canvas>
 
-  </div>
+<!-- Output Image -->
+<div class="output">
+  <h3>Generated Image</h3>
+  <img id="resultImage" alt="Your ad will appear here">
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <p>Simple ads for small shops</p>
-  </footer>
+<footer>
+  <p>Simple ads for small shops</p>
+</footer>
 
+<script src="script.js"></script>
 </body>
 </html>
