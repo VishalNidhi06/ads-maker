@@ -11,37 +11,48 @@ header {
   padding: 20px;
 }
 
-.container {
+/* Two-column layout */
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+/* Left & Right panels */
+.panel {
   background: white;
-  max-width: 400px;
-  margin: 30px auto;
+  width: 350px;
   padding: 20px;
   border-radius: 10px;
 }
 
-h2 {
+.panel h2 {
   text-align: center;
 }
 
+/* Inputs */
 label {
-  font-size: 18px;
-  margin-top: 15px;
   display: block;
+  margin-top: 15px;
 }
 
-input {
+input, select {
   width: 100%;
-  padding: 12px;
-  font-size: 18px;
-  margin-top: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+/* Center button */
+.button-area {
+  text-align: center;
+  margin: 30px 0;
 }
 
 button {
-  width: 100%;
-  margin-top: 25px;
-  padding: 15px;
+  padding: 15px 40px;
   font-size: 20px;
   background: #1f6feb;
   color: white;
@@ -54,23 +65,20 @@ button:hover {
   background: #155ac0;
 }
 
-canvas {
-  display: none;
-}
-
+/* Output image */
 .output {
   text-align: center;
-  margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 .output img {
-  width: 300px;
+  width: 320px;
   border: 2px solid #ccc;
   margin-top: 10px;
 }
 
 footer {
   text-align: center;
-  margin: 20px;
+  margin-bottom: 20px;
   color: #555;
 }

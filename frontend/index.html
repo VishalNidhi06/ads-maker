@@ -12,49 +12,57 @@
   <p>Create shop ads easily</p>
 </header>
 
-<div class="container">
-  <h2>Enter Details</h2>
+<!-- MAIN WRAPPER -->
+<div class="main-wrapper">
 
-  <!-- Shop Name -->
-  <label>🏪 Shop Name</label>
-  <input id="shopName" type="text" placeholder="Sri Ganesh Stores">
+  <!-- LEFT PART -->
+  <div class="panel">
+    <h2>Enter Details</h2>
 
-  <!-- Other details -->
-  <input id="line1" type="text" placeholder="Detail 1">
-  <input id="line2" type="text" placeholder="Detail 2">
-  <input id="line3" type="text" placeholder="Detail 3">
-  <input id="line4" type="text" placeholder="Detail 4">
+    <label>🏪 Shop Name</label>
+    <input id="shopName" type="text">
 
-  <hr>
+    <input id="line1" type="text" placeholder="Detail 1">
+    <input id="line2" type="text" placeholder="Detail 2">
+    <input id="line3" type="text" placeholder="Detail 3">
+    <input id="line4" type="text" placeholder="Detail 4">
+  </div>
 
-  <!-- Shop name style -->
-  <label>🎨 Shop Name Color</label>
-  <input type="color" id="shopColor" value="#ffffff">
+  <!-- RIGHT PART -->
+  <div class="panel">
+    <h2>Text Style</h2>
 
-  <label>🔠 Shop Name Font Size</label>
-  <input type="range" id="shopFontSize" min="24" max="60" value="36">
-  <span id="shopFontValue">36</span> px
+    <label>🎨 Shop Name Color</label>
+    <input type="color" id="shopColor">
 
-  <hr>
+    <label>🔠 Shop Name Font Size</label>
+    <input type="range" id="shopFontSize" min="24" max="60" value="36">
+    <span id="shopFontValue">36</span> px
 
-  <!-- Other text style -->
-  <label>🎨 Details Text Color</label>
-  <input type="color" id="detailColor" value="#ffffff">
+    <hr>
 
-  <label>🔠 Details Font Size</label>
-  <input type="range" id="detailFontSize" min="14" max="40" value="24">
-  <span id="detailFontValue">24</span> px
+    <label>🎨 Details Color</label>
+    <input type="color" id="detailColor">
 
+    <label>🔠 Details Font Size</label>
+    <input type="range" id="detailFontSize" min="14" max="40" value="24">
+    <span id="detailFontValue">24</span> px
+  </div>
+
+</div>
+
+<!-- BUTTON CENTER -->
+<div class="button-area">
   <button onclick="generateImage()">Generate Template</button>
 </div>
 
-<!-- Hidden Canvas -->
+<!-- CANVAS -->
 <canvas id="posterCanvas" width="600" height="800" style="display:none;"></canvas>
 
-<!-- Output -->
+<!-- OUTPUT -->
 <div class="output">
   <h3>Generated Image</h3>
-  <img id="resultImage" alt="Your ad will appear here">
+  <img id="resultImage">
 </div>
 
 <footer>
