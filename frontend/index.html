@@ -15,22 +15,43 @@
 <div class="container">
   <h2>Enter Details</h2>
 
+  <!-- Shop Name -->
   <label>🏪 Shop Name</label>
   <input id="shopName" type="text" placeholder="Sri Ganesh Stores">
 
-  <!-- Empty inputs (no headings) -->
-  <input id="line1" type="text" placeholder="Offer / Festival">
-  <input id="line2" type="text" placeholder="Extra details">
-  <input id="line3" type="text" placeholder="Phone / Address">
-  <input id="line4" type="text" placeholder="Quote">
+  <!-- Other details -->
+  <input id="line1" type="text" placeholder="Detail 1">
+  <input id="line2" type="text" placeholder="Detail 2">
+  <input id="line3" type="text" placeholder="Detail 3">
+  <input id="line4" type="text" placeholder="Detail 4">
+
+  <hr>
+
+  <!-- Shop name style -->
+  <label>🎨 Shop Name Color</label>
+  <input type="color" id="shopColor" value="#ffffff">
+
+  <label>🔠 Shop Name Font Size</label>
+  <input type="range" id="shopFontSize" min="24" max="60" value="36">
+  <span id="shopFontValue">36</span> px
+
+  <hr>
+
+  <!-- Other text style -->
+  <label>🎨 Details Text Color</label>
+  <input type="color" id="detailColor" value="#ffffff">
+
+  <label>🔠 Details Font Size</label>
+  <input type="range" id="detailFontSize" min="14" max="40" value="24">
+  <span id="detailFontValue">24</span> px
 
   <button onclick="generateImage()">Generate Template</button>
 </div>
 
-<!-- Canvas (hidden) -->
-<canvas id="posterCanvas" width="600" height="800"></canvas>
+<!-- Hidden Canvas -->
+<canvas id="posterCanvas" width="600" height="800" style="display:none;"></canvas>
 
-<!-- Output Image -->
+<!-- Output -->
 <div class="output">
   <h3>Generated Image</h3>
   <img id="resultImage" alt="Your ad will appear here">
