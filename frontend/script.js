@@ -1,85 +1,42 @@
-let shopFontFamily = "Arial";
-let detailFontFamily = "Arial";
-let currentTemplateIndex = 0;
+const shopName = document.getElementById("shopName");
+const detail1 = document.getElementById("detail1");
+const detail2 = document.getElementById("detail2");
 
-const templates = [
-  { image: "templates/template1.jpg", shopY: 90, d1Y: 150, d2Y: 200 },
-  { image: "templates/template2.jpg", shopY: 120, d1Y: 220, d2Y: 270 },
-  { image: "templates/template3.jpg", shopY: 80, d1Y: 160, d2Y: 210 },
-  { image: "templates/template4.jpg", shopY: 100, d1Y: 180, d2Y: 230 }
-];
+const pShop = document.getElementById("pShop");
+const p1 = document.getElementById("p1");
+const p2 = document.getElementById("p2");
 
-const shopFontSize = document.getElementById("shopFontSize");
-const detailFontSize = document.getElementById("detailFontSize");
-const shopFontValue = document.getElementById("shopFontValue");
-const detailFontValue = document.getElementById("detailFontValue");
+shopName.oninput = () => pShop.innerText = shopName.value;
+detail1.oninput = () => p1.innerText = detail1.value;
+detail2.oninput = () => p2.innerText = detail2.value;
 
-shopFontValue.innerText = shopFontSize.value;
-detailFontValue.innerText = detailFontSize.value;
+shopColor.oninput = () => pShop.style.color = shopColor.value;
+detailColor.oninput = () => {
+  p1.style.color = detailColor.value;
+  p2.style.color = detailColor.value;
+};
 
-shopFontSize.oninput = () => shopFontValue.innerText = shopFontSize.value;
-detailFontSize.oninput = () => detailFontValue.innerText = detailFontSize.value;
+shopSize.oninput = () => {
+  pShop.style.fontSize = shopSize.value + "px";
+  shopSizeVal.innerText = shopSize.value + " px";
+};
 
-document.querySelectorAll("input").forEach(el =>
-  el.addEventListener("input", renderPoster)
-);
+detailSize.oninput = () => {
+  p1.style.fontSize = detailSize.value + "px";
+  p2.style.fontSize = detailSize.value + "px";
+  detailSizeVal.innerText = detailSize.value + " px";
+};
 
 function setShopFont(font) {
-  shopFontFamily = font;
-  renderPoster();
+  pShop.style.fontFamily = font;
 }
 
 function setDetailFont(font) {
-  detailFontFamily = font;
-  renderPoster();
+  p1.style.fontFamily = font;
+  p2.style.fontFamily = font;
 }
 
-function setTemplate(index) {
-  currentTemplateIndex = index;
-  document.querySelectorAll(".template-buttons img").forEach((img, i) => {
-    img.classList.toggle("active", i === index);
-  });
-  renderPoster();
-}
-
-function renderPoster() {
-  const canvas = document.getElementById("posterCanvas");
-  const ctx = canvas.getContext("2d");
-
-  const shopName = document.getElementById("shopName").value;
-  const line1 = document.getElementById("line1").value;
-  const line2 = document.getElementById("line2").value;
-
-  const shopColor = document.getElementById("shopColor").value;
-  const detailColor = document.getElementById("detailColor").value;
-
-  const t = templates[currentTemplateIndex];
-  const img = new Image();
-  img.src = t.image;
-
-  img.onload = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-    ctx.textAlign = "center";
-    ctx.fillStyle = shopColor;
-    ctx.font = `bold ${shopFontSize.value}px ${shopFontFamily}`;
-    ctx.fillText(shopName, canvas.width / 2, t.shopY);
-
-    ctx.fillStyle = detailColor;
-    ctx.font = `${detailFontSize.value}px ${detailFontFamily}`;
-    ctx.fillText(line1, canvas.width / 2, t.d1Y);
-    ctx.fillText(line2, canvas.width / 2, t.d2Y);
-
-    document.getElementById("resultImage").src =
-      canvas.toDataURL("image/png");
-  };
-}
-
-function downloadImage() {
-  const canvas = document.getElementById("posterCanvas");
-  const link = document.createElement("a");
-  link.href = canvas.toDataURL("image/png");
-  link.download = "shop-poster.png";
-  link.click();
+function changeTemplate(n) {
+  document.getElementById("poster").style.backgroundImage =
+    `url("assets/templates/template${n}.jpg")`;
 }

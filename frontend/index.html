@@ -3,101 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <title>Ads Maker</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
+<header class="top-bar">
   <h1>🪧 Ads Maker</h1>
   <p>Simple ads for small shops</p>
 </header>
 
-<div class="grid-container">
+<div class="main">
 
   <!-- COLUMN 1 -->
-  <div class="column scrollable">
+  <div class="card">
     <h2>Enter Details</h2>
 
     <label>Shop Name</label>
-    <input id="shopName" type="text">
+    <input id="shopName" value="">
 
     <label>Detail 1</label>
-    <input id="line1" type="text">
+    <input id="detail1" value="">
 
     <label>Detail 2</label>
-    <input id="line2" type="text">
+    <input id="detail2" value="">
   </div>
 
   <!-- COLUMN 2 -->
-  <div class="column scrollable">
+  <div class="card">
     <h2>Customize</h2>
 
     <label>Shop Color</label>
-    <input type="color" id="shopColor" value="#ffffff">
+    <input type="color" id="shopColor">
 
     <label>Shop Size</label>
-    <input type="range" id="shopFontSize" min="24" max="60" value="36">
-    <span id="shopFontValue">36</span> px
+    <input type="range" id="shopSize" min="30" max="80" value="53">
+    <span id="shopSizeVal">53 px</span>
 
     <label>Shop Font</label>
-    <div class="font-buttons">
-      <button onclick="setShopFont('Arial')" class="active">A</button>
-      <button onclick="setShopFont('Poppins')" style="font-family:Poppins">A</button>
-      <button onclick="setShopFont('Montserrat')" style="font-family:Montserrat">A</button>
-      <button onclick="setShopFont('Playfair Display')" style="font-family:'Playfair Display'">A</button>
-      <button onclick="setShopFont('Courier New')" style="font-family:'Courier New'">A</button>
+    <div class="font-row">
+      <button onclick="setShopFont('serif')">A</button>
+      <button onclick="setShopFont('sans-serif')">A</button>
+      <button onclick="setShopFont('cursive')">A</button>
+      <button onclick="setShopFont('monospace')">A</button>
+      <button onclick="setShopFont('fantasy')">A</button>
     </div>
 
-    <hr>
-
     <label>Detail Color</label>
-    <input type="color" id="detailColor" value="#ffffff">
+    <input type="color" id="detailColor">
 
     <label>Detail Size</label>
-    <input type="range" id="detailFontSize" min="14" max="40" value="24">
-    <span id="detailFontValue">24</span> px
+    <input type="range" id="detailSize" min="20" max="50" value="34">
+    <span id="detailSizeVal">34 px</span>
 
     <label>Detail Font</label>
-    <div class="font-buttons">
-      <button onclick="setDetailFont('Arial')" class="active">A</button>
-      <button onclick="setDetailFont('Poppins')" style="font-family:Poppins">A</button>
-      <button onclick="setDetailFont('Montserrat')" style="font-family:Montserrat">A</button>
-      <button onclick="setDetailFont('Playfair Display')" style="font-family:'Playfair Display'">A</button>
-      <button onclick="setDetailFont('Courier New')" style="font-family:'Courier New'">A</button>
+    <div class="font-row">
+      <button onclick="setDetailFont('serif')">A</button>
+      <button onclick="setDetailFont('sans-serif')">A</button>
+      <button onclick="setDetailFont('cursive')">A</button>
+      <button onclick="setDetailFont('monospace')">A</button>
+      <button onclick="setDetailFont('fantasy')">A</button>
     </div>
   </div>
 
-  <!-- COLUMN 3 (LOCKED) -->
-  <div class="column preview-column">
+  <!-- COLUMN 3 -->
+  <div class="card template-card">
     <h2>Templates</h2>
 
-    <div class="template-buttons">
-      <img src="templates/template1.jpg" onclick="setTemplate(0)" class="active">
-      <img src="templates/template2.jpg" onclick="setTemplate(1)">
-      <img src="templates/template3.jpg" onclick="setTemplate(2)">
-      <img src="templates/template4.jpg" onclick="setTemplate(3)">
+    <div class="template-row">
+      <img src="assets/templates/template1.jpg" onclick="changeTemplate(1)">
+      <img src="assets/templates/template2.jpg" onclick="changeTemplate(2)">
+      <img src="assets/templates/template3.jpg" onclick="changeTemplate(3)">
+      <img src="assets/templates/template4.jpg" onclick="changeTemplate(4)">
     </div>
 
-    <div class="preview-wrapper">
-      <div class="preview-area">
-        <img id="resultImage">
-      </div>
-
-      <div class="preview-button">
-        <button onclick="downloadImage()">Download Image</button>
+    <div class="poster-box">
+      <div id="poster">
+        <h1 id="pShop">ABCDE textiles</h1>
+        <p id="p1">welcome</p>
+        <p id="p2">thalapathy thiruvizha</p>
       </div>
     </div>
+
+    <button class="download-btn">Download Image</button>
   </div>
 
 </div>
-
-<canvas id="posterCanvas" width="600" height="800" style="display:none;"></canvas>
-
-<footer>
-  <p>Made for semi-literate shop owners</p>
-</footer>
 
 <script src="script.js"></script>
 </body>
