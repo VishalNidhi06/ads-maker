@@ -4,45 +4,44 @@
   <meta charset="UTF-8">
   <title>Ads Maker</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <h1>🪧 Ads Maker</h1>
-  <p>Create simple shop ads</p>
+  <p>Simple ads for small shops</p>
 </header>
 
 <div class="grid-container">
 
-  <!-- COLUMN 1 : DETAILS -->
-  <div class="column">
+  <!-- COLUMN 1 -->
+  <div class="column scrollable">
     <h2>Enter Details</h2>
 
-    <label>🏪 Shop Name</label>
+    <label>Shop Name</label>
     <input id="shopName" type="text">
 
-    <input id="line1" type="text" placeholder="Detail 1">
-    <input id="line2" type="text" placeholder="Detail 2">
-    <input id="line3" type="text" placeholder="Detail 3">
-    <input id="line4" type="text" placeholder="Detail 4">
+    <label>Detail 1</label>
+    <input id="line1" type="text">
+
+    <label>Detail 2</label>
+    <input id="line2" type="text">
   </div>
 
-  <!-- COLUMN 2 : CUSTOMIZATION -->
-  <div class="column">
+  <!-- COLUMN 2 -->
+  <div class="column scrollable">
     <h2>Customize</h2>
 
-    <label>🎨 Shop Name Color</label>
+    <label>Shop Color</label>
     <input type="color" id="shopColor" value="#ffffff">
 
-    <label>🔠 Shop Name Size</label>
+    <label>Shop Size</label>
     <input type="range" id="shopFontSize" min="24" max="60" value="36">
     <span id="shopFontValue">36</span> px
 
-    <label>🅰️ Shop Name Font</label>
+    <label>Shop Font</label>
     <div class="font-buttons">
       <button onclick="setShopFont('Arial')" class="active">A</button>
       <button onclick="setShopFont('Poppins')" style="font-family:Poppins">A</button>
@@ -53,14 +52,14 @@
 
     <hr>
 
-    <label>🎨 Details Color</label>
+    <label>Detail Color</label>
     <input type="color" id="detailColor" value="#ffffff">
 
-    <label>🔠 Details Size</label>
+    <label>Detail Size</label>
     <input type="range" id="detailFontSize" min="14" max="40" value="24">
     <span id="detailFontValue">24</span> px
 
-    <label>🅱️ Details Font</label>
+    <label>Detail Font</label>
     <div class="font-buttons">
       <button onclick="setDetailFont('Arial')" class="active">A</button>
       <button onclick="setDetailFont('Poppins')" style="font-family:Poppins">A</button>
@@ -70,16 +69,25 @@
     </div>
   </div>
 
-  <!-- COLUMN 3 : PREVIEW -->
+  <!-- COLUMN 3 (LOCKED) -->
   <div class="column preview-column">
-    <h2>Preview</h2>
+    <h2>Templates</h2>
 
-    <div class="preview-area">
-      <img id="resultImage">
+    <div class="template-buttons">
+      <img src="templates/template1.jpg" onclick="setTemplate(0)" class="active">
+      <img src="templates/template2.jpg" onclick="setTemplate(1)">
+      <img src="templates/template3.jpg" onclick="setTemplate(2)">
+      <img src="templates/template4.jpg" onclick="setTemplate(3)">
     </div>
 
-    <div class="preview-button">
-      <button onclick="downloadImage()">Download Image</button>
+    <div class="preview-wrapper">
+      <div class="preview-area">
+        <img id="resultImage">
+      </div>
+
+      <div class="preview-button">
+        <button onclick="downloadImage()">Download Image</button>
+      </div>
     </div>
   </div>
 
@@ -88,7 +96,7 @@
 <canvas id="posterCanvas" width="600" height="800" style="display:none;"></canvas>
 
 <footer>
-  <p>Simple ads for small shops</p>
+  <p>Made for semi-literate shop owners</p>
 </footer>
 
 <script src="script.js"></script>
