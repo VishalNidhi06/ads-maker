@@ -1,40 +1,25 @@
-firebase.initializeApp({
-  apiKey: "AIzaSyDz9-J2Ge-uyKXVC6otF-dQ2iX_D6zGboI",
-  authDomain: "ads-maker-32aee.firebaseapp.com",
-  projectId: "ads-maker-32aee",
-  messagingSenderId: "753217117880",
-  appId: "1:753217117880:web:6cf8024af52e5b383f9e4d"
-});
+function phoneLogin() {
+  const phone = document.getElementById("phone").value;
+  const otp = document.getElementById("otp").value;
 
-const auth = firebase.auth();
-let confirmationResult;
+  if (phone.length < 10) {
+    alert("Enter valid mobile number");
+    return;
+  }
 
-window.onload = () => {
-  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
-    "recaptcha-container",
-    { size: "normal" }
-  );
-  recaptchaVerifier.render();
-};
-
-function sendOTP() {
-  const phone = "+91" + document.getElementById("phone").value;
-  auth.signInWithPhoneNumber(phone, recaptchaVerifier)
-    .then(res => {
-      confirmationResult = res;
-      alert("OTP Sent");
-    })
-    .catch(err => alert(err.message));
-}
-
-function verifyOTP() {
-  confirmationResult.confirm(document.getElementById("otp").value)
-    .then(() => location.href = "index.html")
-    .catch(() => alert("Wrong OTP"));
+  // TEMP SUCCESS (until Firebase OTP verification)
+  window.location.href = "index.html";
 }
 
 function emailLogin() {
-  auth.signInWithEmailAndPassword(email.value, password.value)
-    .then(() => location.href = "index.html")
-    .catch(err => alert(err.message));
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  if (!email || !password) {
+    alert("Enter email and password");
+    return;
+  }
+
+  // TEMP SUCCESS (until Firebase auth)
+  window.location.href = "index.html";
 }

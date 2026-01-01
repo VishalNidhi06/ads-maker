@@ -1,90 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ads Maker</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Ads Maker</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
+
 <body>
 
-<header class="top-bar">
-  <h1>🪧 Ads Maker</h1>
+<header class="top-header">
+  <h1>Ads Maker</h1>
   <p>Simple ads for small shops</p>
 </header>
 
-<div class="main">
+<div class="container">
 
   <!-- COLUMN 1 -->
-  <div class="card">
-    <h2>Enter Details</h2>
+  <div class="panel">
+    <h2>Templates</h2>
 
-    <label>Shop Name</label>
-    <input id="shopName" value="">
+    <div class="template-list">
+      <img src="assets/templates/template1.jpg" onclick="setTemplate(1)">
+      <img src="assets/templates/template2.jpg" onclick="setTemplate(2)">
+      <img src="assets/templates/template3.jpg" onclick="setTemplate(3)">
+      <img src="assets/templates/template4.jpg" onclick="setTemplate(4)">
+    </div>
 
-    <label>Detail 1</label>
-    <input id="detail1" value="">
+    <h3>Shop Name</h3>
+    <input id="shopName" placeholder="Enter shop name">
 
-    <label>Detail 2</label>
-    <input id="detail2" value="">
+    <h3>Details</h3>
+    <input id="detail1" placeholder="Detail 1">
+    <input id="detail2" placeholder="Detail 2">
   </div>
 
   <!-- COLUMN 2 -->
-  <div class="card">
+  <div class="panel scroll">
+
     <h2>Customize</h2>
 
-    <label>Shop Color</label>
-    <input type="color" id="shopColor">
+    <div class="control-box">
+      <h4>Shop Name</h4>
 
-    <label>Shop Size</label>
-    <input type="range" id="shopSize" min="30" max="80" value="53">
-    <span id="shopSizeVal">53 px</span>
+      <label>Font Color</label>
+      <input type="color" id="shopColor">
 
-    <label>Shop Font</label>
-    <div class="font-row">
-      <button onclick="setShopFont('serif')">A</button>
-      <button onclick="setShopFont('sans-serif')">A</button>
-      <button onclick="setShopFont('cursive')">A</button>
-      <button onclick="setShopFont('monospace')">A</button>
-      <button onclick="setShopFont('fantasy')">A</button>
-    </div>
+      <label>Font Size</label>
+      <input type="range" id="shopSize" min="30" max="55" value="42">
 
-    <label>Detail Color</label>
-    <input type="color" id="detailColor">
-
-    <label>Detail Size</label>
-    <input type="range" id="detailSize" min="20" max="50" value="34">
-    <span id="detailSizeVal">34 px</span>
-
-    <label>Detail Font</label>
-    <div class="font-row">
-      <button onclick="setDetailFont('serif')">A</button>
-      <button onclick="setDetailFont('sans-serif')">A</button>
-      <button onclick="setDetailFont('cursive')">A</button>
-      <button onclick="setDetailFont('monospace')">A</button>
-      <button onclick="setDetailFont('fantasy')">A</button>
-    </div>
-  </div>
-
-  <!-- COLUMN 3 -->
-  <div class="card template-card">
-    <h2>Templates</h2>
-
-    <div class="template-row">
-      <img src="assets/templates/template1.jpg" onclick="changeTemplate(1)">
-      <img src="assets/templates/template2.jpg" onclick="changeTemplate(2)">
-      <img src="assets/templates/template3.jpg" onclick="changeTemplate(3)">
-      <img src="assets/templates/template4.jpg" onclick="changeTemplate(4)">
-    </div>
-
-    <div class="poster-box">
-      <div id="poster">
-        <h1 id="pShop">ABCDE textiles</h1>
-        <p id="p1">welcome</p>
-        <p id="p2">thalapathy thiruvizha</p>
+      <label>Font Style</label>
+      <div class="font-buttons">
+        <button onclick="setShopFont('serif')">A</button>
+        <button onclick="setShopFont('sans-serif')">A</button>
+        <button onclick="setShopFont('monospace')">A</button>
+        <button onclick="setShopFont('cursive')">A</button>
+        <button onclick="setShopFont('fantasy')">A</button>
       </div>
     </div>
 
-    <button class="download-btn">Download Image</button>
+    <div class="control-box">
+      <h4>Details</h4>
+
+      <label>Font Color</label>
+      <input type="color" id="detailColor">
+
+      <label>Font Size</label>
+      <input type="range" id="detailSize" min="18" max="30" value="24">
+
+      <label>Font Style</label>
+      <div class="font-buttons">
+        <button onclick="setDetailFont('serif')">A</button>
+        <button onclick="setDetailFont('sans-serif')">A</button>
+        <button onclick="setDetailFont('monospace')">A</button>
+        <button onclick="setDetailFont('cursive')">A</button>
+        <button onclick="setDetailFont('fantasy')">A</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COLUMN 3 -->
+  <div class="panel preview-panel">
+
+    <div id="poster" class="poster">
+      <div id="posterShop"></div>
+      <div id="posterD1"></div>
+      <div id="posterD2"></div>
+    </div>
+
+    <button id="downloadBtn">Download Image</button>
+
   </div>
 
 </div>

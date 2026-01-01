@@ -1,42 +1,45 @@
-const shopName = document.getElementById("shopName");
-const detail1 = document.getElementById("detail1");
-const detail2 = document.getElementById("detail2");
+const poster = document.getElementById("poster");
+const posterShop = document.getElementById("posterShop");
+const posterD1 = document.getElementById("posterD1");
+const posterD2 = document.getElementById("posterD2");
 
-const pShop = document.getElementById("pShop");
-const p1 = document.getElementById("p1");
-const p2 = document.getElementById("p2");
+shopName.oninput = () => posterShop.innerText = shopName.value;
+detail1.oninput = () => posterD1.innerText = detail1.value;
+detail2.oninput = () => posterD2.innerText = detail2.value;
 
-shopName.oninput = () => pShop.innerText = shopName.value;
-detail1.oninput = () => p1.innerText = detail1.value;
-detail2.oninput = () => p2.innerText = detail2.value;
-
-shopColor.oninput = () => pShop.style.color = shopColor.value;
+shopColor.oninput = () => posterShop.style.color = shopColor.value;
 detailColor.oninput = () => {
-  p1.style.color = detailColor.value;
-  p2.style.color = detailColor.value;
+  posterD1.style.color = detailColor.value;
+  posterD2.style.color = detailColor.value;
 };
 
-shopSize.oninput = () => {
-  pShop.style.fontSize = shopSize.value + "px";
-  shopSizeVal.innerText = shopSize.value + " px";
-};
+shopSize.oninput = () =>
+  posterShop.style.fontSize = shopSize.value + "px";
 
 detailSize.oninput = () => {
-  p1.style.fontSize = detailSize.value + "px";
-  p2.style.fontSize = detailSize.value + "px";
-  detailSizeVal.innerText = detailSize.value + " px";
+  posterD1.style.fontSize = detailSize.value + "px";
+  posterD2.style.fontSize = detailSize.value + "px";
 };
 
 function setShopFont(font) {
-  pShop.style.fontFamily = font;
+  posterShop.style.fontFamily = font;
 }
 
 function setDetailFont(font) {
-  p1.style.fontFamily = font;
-  p2.style.fontFamily = font;
+  posterD1.style.fontFamily = font;
+  posterD2.style.fontFamily = font;
 }
 
-function changeTemplate(n) {
-  document.getElementById("poster").style.backgroundImage =
-    `url("assets/templates/template${n}.jpg")`;
+function setTemplate(num) {
+  poster.style.backgroundImage =
+    `url('assets/templates/template${num}.jpg')`;
 }
+
+downloadBtn.onclick = () => {
+  html2canvas(poster, { scale: 2 }).then(canvas => {
+    const link = document.createElement("a");
+    link.download = "poster.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  });
+};
